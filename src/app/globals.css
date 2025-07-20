@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+
+
+:root {
+  --primary_1:#FF7601;
+  --primary_2:#F3A26D;
+  --primary_3:#00809D;
+  --primary_4:#FCECDD;
+  --font_pop:"Poppins", sans-serif;
+}
+
+@theme inline {
+  --color-primary_1:var(--primary_1);
+  --color-primary_2:var(--primary_2);
+  --color-primary_3:var(--primary_3);
+  --color-primary_4:var(--primary_4);
+}
+.container{
+  @apply max-w-[1200px] mx-auto px-4;
+}
+.subheading{
+  @apply text-sm text-gray-500 font-medium;
+}
+.headingh4{
+  @apply text-xl font-semibold inline-flex items-center gap-1 hover:underline py-4 cursor-pointer;
+}
+
+.homecardsetup{
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(200,1fr));
+}
+
+body {
+  font-family:var(--font_pop);
+  font-weight: 400;
+  background-color: var(--primary_4);
+}
+
