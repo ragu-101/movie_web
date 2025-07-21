@@ -1,7 +1,7 @@
 'use client'
 
 import Image from "next/image";
-import MoviesListsComp from './components/moviesListsComp';
+// import MoviesListsComp from './components/moviesListsComp';
 import { ApiServices } from "./services/apiServices";
 import { useEffect, useState } from "react";
 import { HiStar } from "react-icons/hi";
@@ -53,7 +53,7 @@ export default function Home() {
               genreMovies.map((item: any, index: number) => (
                 <div key={index} className="w-full">
                   <div className="relative rounded-xl overflow-hidden aspect-[2/3]">
-                    <Image src={`https://image.tmdb.org/t/p/original${item.poster_path}`} alt={item.title} fill  />
+                    <Image src={`https://image.tmdb.org/t/p/original${item.poster_path}`} alt={item.title} fill sizes="(max-width: 768px) 100vw, 50vw"  />
                   </div>
                   <div className="pt-2">
                     <p className="text-base font-medium pb-2">{item.title}</p>

@@ -15,7 +15,7 @@ const MovieCard:React.FC<movieCardProps> = ({poster_path,original_title,vote_ave
     return (
         <div className='w-full bg-white rounded-xl overflow-hidden'>
         <div className='w-full h-[220px] relative'>
-            <Image src={`https://image.tmdb.org/t/p/original${poster_path}`} alt={`${original_title}`} fill={true} />
+            <Image src={`https://image.tmdb.org/t/p/original${poster_path}`} alt={`${original_title}`} fill sizes="(max-width: 768px) 100vw, 50vw" />
         </div>
         <div className='p-2 flex flex-col gap-2'>
             <div className='flex items-center justify-between'>
