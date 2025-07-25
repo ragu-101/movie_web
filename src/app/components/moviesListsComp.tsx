@@ -31,7 +31,7 @@ function moviesListsComp({url,heading}:movieListProps) {
     )) : []
 
 
-    console.log("dataaaa", data)
+    // console.log("dataaaa", data)
     return <div className="width-full">
         <h4 className='group headingh4'>{heading} <HiChevronRight className='group-hover:ml-1 transition-all duration-200' /></h4>
         <div className=''>

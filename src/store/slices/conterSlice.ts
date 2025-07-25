@@ -1,25 +1,21 @@
 // src/redux/slices/counterSlice.ts
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface CounterState {
-  value: number;
+interface MovieState {
+  movieId: string;
 }
 
-const initialState: CounterState = {
-  value: 0,
+const initialState: MovieState = {
+  movieId: '550',
 };
 
 const counterSlice = createSlice({
-  name: 'counter',
+  name: 'moviesIds',
   initialState,
   reducers: {
-    increment: state => { state.value += 1 },
-    decrement: state => { state.value -= 1 },
-    incrementByAmount: (state, action: PayloadAction<number>) => {
-      state.value += action.payload;
-    },
+    getMovieId: (state, action: PayloadAction<string>)  => { state.movieId = action.payload  },
   },
 });
 
-export const { increment, decrement, incrementByAmount } = counterSlice.actions;
+export const { getMovieId } = counterSlice.actions;
 export default counterSlice.reducer;

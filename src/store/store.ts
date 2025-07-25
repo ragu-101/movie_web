@@ -1,11 +1,11 @@
 // src/redux/store.ts
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from './slices/conterSlice';
-import genreReducer from './slices/genreSlice';
+import counterSlice from './slices/conterSlice';
+// import genreReducer from './slices/genreSlice';
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    counter: counterSlice,
   },
 });
 

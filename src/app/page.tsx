@@ -1,16 +1,17 @@
 'use client'
 
 import Image from "next/image";
-// import MoviesListsComp from './components/moviesListsComp';
 import { ApiServices } from "./services/apiServices";
 import { useEffect, useState } from "react";
 import { HiStar } from "react-icons/hi";
+import MoviesListsComp from "./components/moviesListsComp";
 
 export default function Home() {
   const [genreLists, setGenreLists] = useState<any>([]);
   const [genreMovies, setGenreMovies] = useState<any>([]);
   const [activeGenre, setActiveGenre] = useState('popular');
-  // https://api.themoviedb.org/3/genre/movie/list
+
+
   const fetchDatas = async () => {
     await ApiServices.get('/genre/movie/list').then((data) => setGenreLists(data.genres)).catch(() => { throw new Error('Unable to fetch genres') });
 
@@ -25,7 +26,7 @@ export default function Home() {
     await ApiServices.get(`/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.asc&with_genres=${genre_num}`).then((data) => setGenreMovies(data.results)).catch(() => { throw new Error('Unable to fetch movies based on Genre') })
   }
 
-  console.log('moviesss', genreMovies);
+  // console.log('moviesss', genreMovies);
 
   const getReleaseYear = (release_date: string): string => {
     return release_date ? release_date.slice(0,4) : 'Not Available';
@@ -62,16 +63,15 @@ export default function Home() {
                 </div>
               ))
             }
-
           </div> :
-            <p>Loading...</p>
+            <p className="text-center">Loading...</p>
         }
 
 
-        {/* top rated
-        <MoviesListsComp url="/movie/popular?language=en-US&page=1" heading="Top Rated" />
-        Trending
-        <MoviesListsComp url="/trending/movie/day" heading="Trending" /> */}
+        {/* top rated */}
+        {/* <MoviesListsComp url="/movie/popular?language=en-US&page=1" heading="Top Rated" /> */}
+        {/* Trending */}
+        {/* <MoviesListsComp url="/trending/movie/day" heading="Trending" /> */}
       </div>
     </div>
   );

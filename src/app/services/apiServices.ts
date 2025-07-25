@@ -11,7 +11,6 @@ export class ApiServices{
             }
         }
         const fetch_url = `${this.base_url}${url}`;
-        console.log('url',fetch_url);
         
         const response = await fetch(fetch_url,options);
         if(!response.ok){
