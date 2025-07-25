@@ -4,7 +4,7 @@ import Image from "next/image";
 import { ApiServices } from "./services/apiServices";
 import { useEffect, useState } from "react";
 import { HiStar } from "react-icons/hi";
-import MoviesListsComp from "./components/moviesListsComp";
+// import MoviesListsComp from "./components/moviesListsComp";
 
 export default function Home() {
   const [genreLists, setGenreLists] = useState<any>([]);

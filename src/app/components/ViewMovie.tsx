@@ -5,7 +5,7 @@ import { ApiServices } from '../services/apiServices';
 import { useEffect, useState } from 'react';
 // import MovieCard from '../components/movieCard';
 import MoviesListsComp from './moviesListsComp';
-import { HiChevronRight } from 'react-icons/hi';
+// import { HiChevronRight } from 'react-icons/hi';
 import Link from 'next/link'
 import { useSelector } from 'react-redux';
 import { RootState } from '@/store/store';
