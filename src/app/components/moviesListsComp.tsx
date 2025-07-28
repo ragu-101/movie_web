@@ -13,7 +13,7 @@ interface movieListProps{
 
 
 function moviesListsComp({url,heading}:movieListProps) {
-    console.log('env', process.env.NEXT_PUBLIC_BASE_URL)
+    // console.log('env', process.env.NEXT_PUBLIC_BASE_URL)
     const [data, setData] = useState<any>({});
     const [error, setError] = useState('');
 
