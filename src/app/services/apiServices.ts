@@ -1,6 +1,11 @@
+import { keyvariables } from "./config";
 export class ApiServices{
-    public static base_url = process.env.NEXT_PUBLIC_BASE_URL;
-    public static api_key = process.env.NEXT_PUBLIC_TOKEN;
+    // public static base_url = process.env.NEXT_PUBLIC_BASE_URL;
+    // public static api_key = process.env.NEXT_PUBLIC_TOKEN;
+
+    public static base_url = keyvariables.NEXT_PUBLIC_BASE_URL;
+    public static api_key = keyvariables.NEXT_PUBLIC_TOKEN;
+
 
     public static async get(url:string){
         const options = {
