@@ -42,7 +42,7 @@ export default function ViewMovie() {
         return `${hours}hrs ${minutes}min`;
     }
 
-    console.log("response",movieDetails);
+    // console.log("response",movieDetails);
 
     const getTrailer = (videos:any) => {
         if(videos.length > 0){
@@ -54,7 +54,7 @@ export default function ViewMovie() {
     }
     getTrailer(videos);
 
-    console.log('videos',trailervideo_id)
+    // console.log('videos',trailervideo_id)
 
     return (
         <>

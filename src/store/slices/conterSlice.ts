@@ -6,14 +6,14 @@ interface MovieState {
 }
 
 const initialState: MovieState = {
-  movieId: '550',
+  movieId: '',
 };
 
 const counterSlice = createSlice({
   name: 'moviesIds',
   initialState,
   reducers: {
-    getMovieId: (state, action: PayloadAction<string>)  => { state.movieId = action.payload  },
+    getMovieId: (state, action: PayloadAction<string>)  => { state.movieId = action.payload;console.log('redux id',action.payload)  },
   },
 });
 

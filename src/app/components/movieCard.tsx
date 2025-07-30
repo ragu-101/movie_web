@@ -4,14 +4,26 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip
 import Link from "next/link";
 import { HiOutlineStar, HiStar } from "react-icons/hi";
 import Image from 'next/image';
+import { useDispatch } from "react-redux";
+import type { AppDispatch } from "@/store/store";
+import { getMovieId } from "@/store/slices/conterSlice";
+import { useRouter } from "next/navigation";
 
 interface movieCardProps{
     poster_path:string,
     original_title:string,
     vote_average:number,
+    movie_id:string
 }
 
-const MovieCard:React.FC<movieCardProps> = ({poster_path,original_title,vote_average}) => {
+const MovieCard:React.FC<movieCardProps> = ({poster_path,original_title,vote_average,movie_id}) => {
+    const dispatch = useDispatch<AppDispatch>();
+    const router = useRouter();
+    const handleClick = (e:React.MouseEvent<HTMLButtonElement>,movie_id:string)=>{
+        dispatch(getMovieId(movie_id));
+        // console.log('movie id in card',movie_id)
+        // router.refresh();
+    }
     return (
         <div className='w-full bg-white rounded-xl overflow-hidden'>
         <div className='w-full h-[220px] relative'>
@@ -36,7 +48,8 @@ const MovieCard:React.FC<movieCardProps> = ({poster_path,original_title,vote_ave
             </div>
 
             {/* <p className='text-sm'>{item.overview}</p> */}
-            <Link href={'/'} className='text-center cursor-pointer hover:text-primary_1'>View More</Link>
+            {/* <Link href={'/'} onClick={handleClick} className='text-center cursor-pointer hover:text-primary_1'>View More</Link> */}
+            <button onClick={(e)=>handleClick(e,movie_id)} className='cursor-pointer'>View More</button>
         </div>
     </div>
     )

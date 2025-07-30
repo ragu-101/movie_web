@@ -81,7 +81,7 @@ function TopBar() {
                         search.length > 0 && <div className="absolute w-xl py-2 bg-white top-12 rounded-lg left-[50%] -translate-x-[50%] max-h-80 overflow-y-auto z-9">
                             {
                                 suggestions.map((item: any, index: number) => (
-                                    <div className="flex gap-2 py-1 cursor-pointer hover:bg-gray-500 hover:text-white px-4" onClick={() => handleClick(item.id,item.title)}>
+                                    <div key={index} className="flex gap-2 py-1 cursor-pointer hover:bg-gray-500 hover:text-white px-4" onClick={() => handleClick(item.id,item.title)}>
                                         <div className="w-10 h-10 rounded-md relative overflow-hidden shrink-0">
                                             <Image src={`https://image.tmdb.org/t/p/original${item.poster_path}`} alt="img" fill sizes="(max-width: 768px) 100vw, 50vw"  />
                                         </div>

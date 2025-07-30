@@ -2,14 +2,20 @@
 
 import Image from "next/image";
 import { ApiServices } from "./services/apiServices";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { HiStar } from "react-icons/hi";
-// import MoviesListsComp from "./components/moviesListsComp";
+import { useDispatch } from "react-redux";
+import type { AppDispatch } from "@/store/store";
+import { getMovieId } from "@/store/slices/conterSlice";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
   const [genreLists, setGenreLists] = useState<any>([]);
   const [genreMovies, setGenreMovies] = useState<any>([]);
   const [activeGenre, setActiveGenre] = useState('popular');
+  const router = useRouter();
+
+  const dispatch = useDispatch<AppDispatch>();
 
 
   const fetchDatas = async () => {
@@ -32,6 +38,11 @@ export default function Home() {
     return release_date ? release_date.slice(0,4) : 'Not Available';
   }
 
+  const handleClick = (movie_id:string)=>{
+    dispatch(getMovieId(movie_id));
+    router.push('/viewmovie');
+  }
+
   return (
     <div className="">
       <div className="container">
@@ -51,8 +62,9 @@ export default function Home() {
         {
           genreMovies.length > 0 ? <div className="homecardsetup gap-4 pb-4">
             {
+              // onClick={()=>handleClick(item.id)}
               genreMovies.map((item: any, index: number) => (
-                <div key={index} className="w-full">
+                <div key={index} className="w-full cursor-pointer" onClick={()=>handleClick(item.id)}>
                   <div className="relative rounded-xl overflow-hidden aspect-[2/3]">
                     <Image src={`https://image.tmdb.org/t/p/original${item.poster_path}`} alt={item.title} fill sizes="(max-width: 768px) 100vw, 50vw"  />
                   </div>
@@ -66,12 +78,6 @@ export default function Home() {
           </div> :
             <p className="text-center">Loading...</p>
         }
-
-
-        {/* top rated */}
-        {/* <MoviesListsComp url="/movie/popular?language=en-US&page=1" heading="Top Rated" /> */}
-        {/* Trending */}
-        {/* <MoviesListsComp url="/trending/movie/day" heading="Trending" /> */}
       </div>
     </div>
   );

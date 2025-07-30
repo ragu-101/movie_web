@@ -13,12 +13,10 @@ interface movieListProps{
 
 
 function moviesListsComp({url,heading}:movieListProps) {
-    // console.log('env', process.env.NEXT_PUBLIC_BASE_URL)
     const [data, setData] = useState<any>({});
     const [error, setError] = useState('');
 
     const fetchDatas = async () => {
-        // /movie/popular?language=en-US&page=1
         await ApiServices.get(`${url}`).then((data) => setData(data.results)).catch((error) => {setError(error);throw new Error(`Unable fetch datas in ${heading}`)});
     }
 
@@ -27,7 +25,7 @@ function moviesListsComp({url,heading}:movieListProps) {
     }, [])
 
     const slides = data.length > 0 ? data.map((item: any, index: number) => (
-        <MovieCard key={index} poster_path={item.poster_path} original_title={item.original_title} vote_average={item.vote_average} />
+        <MovieCard key={index} poster_path={item.poster_path} original_title={item.original_title} vote_average={item.vote_average} movie_id={item.id} />
     )) : []
 
 
