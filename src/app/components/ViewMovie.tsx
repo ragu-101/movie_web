@@ -97,8 +97,8 @@ export default function ViewMovie() {
                                 movieImages.map((item:any,index:number)=>{
                                     if(index < 10){
                                         return (
-                                            <div key={index} className='relative w-32 h-34'>
-                                                <Image src={`https://image.tmdb.org/t/p/original${item.file_path}`} alt='image_path' fill />
+                                            <div key={index} className='relative w-34 h-32'>
+                                                <Image src={`https://image.tmdb.org/t/p/original${item.file_path}`} alt='image_path' fill sizes="(max-width: 768px) 100vw, 50vw"/>
                                             </div>
                                         )
                                     }
@@ -155,7 +155,7 @@ export default function ViewMovie() {
                         </div>
                     </>
                         :
-                        <p>Loading...</p>
+                        <p className='text-center'>Loading...</p>
                 }
 
             </div>

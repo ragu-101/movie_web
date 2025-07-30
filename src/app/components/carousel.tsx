@@ -21,7 +21,7 @@ export default function EmblaCarousel({ slides }: EmblaCarouselProps) {
       <div className="overflow-hidden" ref={emblaRef}>
         <div className="flex">
           {slides.map((component, index) => (
-            <div className="flex-[0_0_50%] px-1 md:flex-[0_0_25%] md:px-2" key={index}>
+            <div className="flex-[0_0_50%] px-1 sm:flex-[0_0_25%] sm:px-2" key={index}>
                 {component}
             </div>
           ))}

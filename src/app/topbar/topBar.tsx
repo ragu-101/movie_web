@@ -72,13 +72,13 @@ function TopBar() {
                     {/* <img src="" alt="" /> */}
                     LOGO
                 </span>
-                <span className="flex items-center gap-1 cursor-pointer"><HiMenu />Menu</span>
+                {/* <span className="hidden items-center gap-1 cursor-pointer"><HiMenu />Menu</span> */}
 
-                <div className="relative inline-flex items-center border rounded-md border-primary_3 px-1.5 h-[40px] bg-white focus-within:border-primary_2 hover:border-primary_2">
+                <div className="grow md:flex-none md:mx-auto relative inline-flex items-center border rounded-md border-primary_3 px-1.5 h-[40px] bg-white focus-within:border-primary_2 hover:border-primary_2">
                     <HiOutlineSearch />
                     <input onChange={handleChange} className="outline-none pl-1" type="text" value={search} />
                     {
-                        search.length > 0 && <div className="absolute w-xl py-2 bg-white top-12 rounded-lg left-[50%] -translate-x-[50%] max-h-80 overflow-y-auto z-9">
+                        search.length > 0 && <div className="absolute w-full md:w-xl py-2 bg-white top-12 rounded-lg left-[50%] -translate-x-[50%] max-h-80 overflow-y-auto z-9">
                             {
                                 suggestions.map((item: any, index: number) => (
                                     <div key={index} className="flex gap-2 py-1 cursor-pointer hover:bg-gray-500 hover:text-white px-4" onClick={() => handleClick(item.id,item.title)}>
@@ -96,7 +96,7 @@ function TopBar() {
                     }
 
                 </div>
-                <span className="flex items-center gap-1 cursor-pointer"><MdOutlineAddToPhotos />WatchList</span>
+                {/* <span className="hidden items-center gap-1 cursor-pointer"><MdOutlineAddToPhotos />WatchList</span> */}
             </div>
         </div>
     )
